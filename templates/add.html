@@ -1,33 +1,26 @@
 {% extends "layout.html" %}
-<legend class="border-bottom mb-4">Add Items to Your Fridge!</legend>
-<style>
-    .content-section {
-        padding-bottom: 10px;
-    }
-</style>
 {% block content %}
-    {% for item in form %}
+    <legend class="border-bottom mb-4">Add Items to Your Fridge!</legend>
     <div class="content-section">
         <form method="POST" action="">
-                {{ item.hidden_tag() }}
+                {{ forms.hidden_tag() }}
                 <fieldset class="form-group">
                     </div>
                     <div class="form-group">
-                        {{ item.food_item.label(class="form-control-label") }}
-                        {{ item.food_item(class="form-control form-control-lg") }}
+                        {{ forms.food_item.label(class="form-control-label") }}
+                        {{ forms.food_item(class="form-control form-control-lg") }}
                     </div>
                     <div class="form-group">
-                        {{ item.exp_date.label(class="form-control-label") }}
-                        {{ item.exp_date(class="form-control form-control-lg") }}
+                        {{ forms.exp_date.label(class="form-control-label") }}
+                        {{ forms.exp_date(class="form-control form-control-lg") }}
                     </div>
                 </fieldset>
                 <div class="form-group">
-                    {{ item.submit(class="btn btn-outline-info") }}
+                    {{ forms.submit(class="btn btn-outline-info") }}
                 </div>
-    {% endfor %}
         </form>
     </div>
-{% endblock content %}
+{% endblock %}
 <div class="border-top pt-3">
         <small class="text-muted">
         Already Have An Account? <a class="ml-2" href="{{ url_for('home') }}">Sign In</a>

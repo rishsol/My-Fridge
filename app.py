@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from forms import Item
 
 app = Flask(__name__)
@@ -12,12 +12,15 @@ def home():
 
 @app.route('/add', methods=['POST', 'GET'])
 def add():
-    form  = [Item()]
-    if form[len(form) - 1].validate_on_submit:
-        form.append(Item())
-        add()
-    else:
-        return render_template('add.html', title='Add', form=form)
+    forms = Item(request.form)
+    while request.method == 'POST' and forms.validate():
+        newForm = Item(request.form)
+        return render_template('new_item.html', newForm=newForm)
+    return render_template('add.html', title='Add', forms=forms)
+
+@app.route('/view')
+def view():
+    return render_template('view.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
