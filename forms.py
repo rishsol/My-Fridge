@@ -1,11 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms.validators import DataRequired, Length, EqualTo
+
 
 class Item(FlaskForm):
     food_item = StringField(u'Enter food item', validators=[DataRequired()])
     exp_date = StringField(u'Enter expiration date', validators=[DataRequired()])
     submit = SubmitField('Add another!')
+
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
@@ -17,8 +19,9 @@ class RegistrationForm(FlaskForm):
                                      validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
+
 class LoginForm(FlaskForm):
-    email = StringField('Email',
+    username = StringField('Username',
                         validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')

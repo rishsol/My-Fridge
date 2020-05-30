@@ -1,2 +1,9 @@
 {% extends "layout.html" %}
-    <p>Your Items</p>
+{% block content %}
+<h2>
+    Items in Your Fridge
+</h2>
+<h3>
+    {{ item }} : {{ exp_date }}
+</h3>
+{% endblock %}
