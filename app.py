@@ -16,11 +16,10 @@ class User(db.Model):
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
-    posts = db.relationship('Post', backref='author', lazy=True)
+    #posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
-
 
 @app.route('/')
 @app.route('/home')
@@ -30,10 +29,11 @@ def home():
 @app.route('/add', methods=['POST', 'GET'])
 def add():
     forms = Item()
-    if request.method == 'POST' and forms.validate():
-       item = request.form['food_item']
-       exp_date = request.form['exp_date']
-       return render_template('view.html', item=item, exp_date=exp_date)
+    if not forms.submit.validate(forms):
+    #if request.method == 'POST' and forms.validate():
+        item = request.form['food_item']
+        exp_date = request.form['exp_date']
+        return render_template('view.html', item=item, exp_date=exp_date)
     return render_template('add.html', title='Add', forms=forms)
 
 @app.route('/view', methods=['POST', 'GET'])

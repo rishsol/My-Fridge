@@ -6,20 +6,36 @@
                 {{ forms.hidden_tag() }}
                 <fieldset class="form-group">
                     </div>
-                    <div class="form-group" name='food_item'>
-                        {{ forms.food_item.label(class="form-control-label") }}
-                        {{ forms.food_item(class="form-control form-control-lg") }}
-                    </div>
-                    <div class="form-group" name='exp_date'>
-                        {{ forms.exp_date.label(class="form-control-label") }}
-                        {{ forms.exp_date(class="form-control form-control-lg") }}
-                    </div>
+                    <table class = "table table-bordered" id="dynamic-table">
+                        <div class="form-group" name='food_item'>
+                            <tr>
+                                <td>{{ forms.food_item.label(class="form-control-label") }}</td>
+                                <td>{{ forms.food_item(class="form-control form-control-lg") }}</td>
+                            </tr>
+                        </div>
+                        <div class="form-group" name='exp_date'>
+                            <tr>
+                                <td>{{ forms.exp_date.label(class="form-control-label") }}</td>
+                                <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td>
+                                <td> <button class="btn btn-success" name="add" id= "add">Add another item</button> </td>
+                            </tr>
+                        </div>
+                    </table>
                 </fieldset>
                 <div class="form-group">
                     {{ forms.submit(class="btn btn-outline-info") }}
                 </div>
         </form>
     </div>
+    <script>
+        $(document).ready(function() {
+            var i = 1;
+            $('#add').click(function() {
+                i++;
+                $('#dynamic-table').append('<div class="form-group" name="food_item"> <tr id="row'+i+'"> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td>{{ forms.food_item(class="form-control form-control-lg") }}</td> <td>{{ forms.exp_date.label(class="form-control-label") }}</td <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td> <td> <button name="remove" id= "remove" class="btn btn-danger"> X </button> </td> </tr>');
+            });
+        });
+    </script>
 {% endblock %}
 {% block item %} {% endblock %}
 <div class="border-top pt-3">

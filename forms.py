@@ -2,12 +2,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, EqualTo
 
-
 class Item(FlaskForm):
     food_item = StringField(u'Enter food item', validators=[DataRequired()])
     exp_date = StringField(u'Enter expiration date', validators=[DataRequired()])
-    submit = SubmitField('Add another!')
-
+    submit = SubmitField('Submit!')
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
@@ -18,7 +16,6 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
-
 
 class LoginForm(FlaskForm):
     username = StringField('Username',
