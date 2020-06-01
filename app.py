@@ -29,11 +29,11 @@ def home():
 @app.route('/add', methods=['POST', 'GET'])
 def add():
     forms = Item()
-    if not forms.submit.validate(forms):
+    #if not forms.submit.validate(forms):
     #if request.method == 'POST' and forms.validate():
-        item = request.form['food_item']
-        exp_date = request.form['exp_date']
-        return render_template('view.html', item=item, exp_date=exp_date)
+     #   item = request.form['food_item']
+      #  exp_date = request.form['exp_date']
+       # return render_template('view.html', item=item, exp_date=exp_date)
     return render_template('add.html', title='Add', forms=forms)
 
 @app.route('/view', methods=['POST', 'GET'])

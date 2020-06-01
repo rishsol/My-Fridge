@@ -1,3 +1,4 @@
+/*
 var i = 0;
 var original = document.getElementById("grid");
 function duplicate() {
@@ -6,3 +7,5 @@ function duplicate() {
     clone.onclick = duplicate; // event handlers are not cloned
     this.parentNode.appendChild(clone);
 }
+*/
+

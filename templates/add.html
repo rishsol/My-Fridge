@@ -32,14 +32,8 @@
             var i = 1;
             $('#add').click(function() {
                 i++;
-                $('#dynamic-table').append('<div class="form-group" name="food_item"> <tr id="row'+i+'"> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td>{{ forms.food_item(class="form-control form-control-lg") }}</td> <td>{{ forms.exp_date.label(class="form-control-label") }}</td <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td> <td> <button name="remove" id= "remove" class="btn btn-danger"> X </button> </td> </tr>');
+                $('#dynamic-table').append('<div> <tr id="row'+i+'"> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td>{{ forms.food_item(class="form-control form-control-lg") }}</td> <td>{{ forms.exp_date.label(class="form-control-label") }}</td <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td> <td> <button name="remove" id= "remove" class="btn btn-danger"> X </button> </td> </tr>');
             });
         });
     </script>
 {% endblock %}
-{% block item %} {% endblock %}
-<div class="border-top pt-3">
-        <small class="text-muted">
-        Already Have An Account? <a class="ml-2" href="{{ url_for('home') }}">Sign In</a>
-        </small>
-</div>
