@@ -1,34 +1,34 @@
 {% extends "layout.html" %}
 {% block content %}
-    <legend class="border-bottom mb-4">Add Items to Your Fridge!</legend>
-    <div class="content-section">
-        <form id='content-form' method="POST" action="">
-                {{ forms.hidden_tag() }}
-                <fieldset class="form-group">
-                    </div>
-                    <table class = "table table-bordered" id="dynamic-table">
-                        <div class="form-group" name='food_item'>
-                            <tr>
-                                <td>{{ forms.food_item.label(class="form-control-label") }}</td>
-                                <td>{{ forms.food_item(class="form-control form-control-lg") }}</td>
-                                <td> <button type="button" class="btn btn-success" name="add" id= "add">Add another item</button> </td>
-                            </tr>
-                        </div>
-                        <div class="form-group" name='exp_date'>
-                            <tr>
-                                <td>{{ forms.exp_date.label(class="form-control-label") }}</td>
-                                <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td>
-                            </tr>
-                        </div>
-                    </table>
-                </fieldset>
-                <div class="form-group">
-                    {{ forms.submit(class="btn btn-outline-info") }}
-                </div>
-        </form>
+<legend class="border-bottom mb-4">Add Items to Your Fridge!</legend>
+<div class="content-section">
+    <form id='content-form' method="POST" action="">
+        {{ forms.hidden_tag() }}
+        <fieldset class="form-group">
+</div>
+<table class="table table-bordered" id="dynamic-table">
+    <div class="form-group" name='food_item'>
+        <tr>
+            <td>{{ forms.food_item.label(class="form-control-label") }}</td>
+            <td>{{ forms.food_item(class="form-control form-control-lg") }}</td>
+            <td> <button type="button" class="btn btn-success" name="add" id="add">Add another item</button> </td>
+        </tr>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type=text/javascript>
+    <div class="form-group" name='exp_date'>
+        <tr>
+            <td>{{ forms.exp_date.label(class="form-control-label") }}</td>
+            <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td>
+        </tr>
+    </div>
+</table>
+</fieldset>
+<div class="form-group">
+    {{ forms.submit(class="btn btn-outline-info") }}
+</div>
+</form>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type=text/javascript>
         $(document).ready(function(e) {
             var i = 1;
             $('#add').click(function(e) {
