@@ -2,7 +2,7 @@
 {% block content %}
     <legend class="border-bottom mb-4">Add Items to Your Fridge!</legend>
     <div class="content-section">
-        <form method="POST" action="">
+        <form id='content-form' method="POST" action="">
                 {{ forms.hidden_tag() }}
                 <fieldset class="form-group">
                     </div>
@@ -11,13 +11,13 @@
                             <tr>
                                 <td>{{ forms.food_item.label(class="form-control-label") }}</td>
                                 <td>{{ forms.food_item(class="form-control form-control-lg") }}</td>
+                                <td> <button type="button" class="btn btn-success" name="add" id= "add">Add another item</button> </td>
                             </tr>
                         </div>
                         <div class="form-group" name='exp_date'>
                             <tr>
                                 <td>{{ forms.exp_date.label(class="form-control-label") }}</td>
                                 <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td>
-                                <td> <button class="btn btn-success" name="add" id= "add">Add another item</button> </td>
                             </tr>
                         </div>
                     </table>
@@ -27,13 +27,18 @@
                 </div>
         </form>
     </div>
-    <script>
-        $(document).ready(function() {
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(document).ready(function(e) {
             var i = 1;
-            $('#add').click(function() {
+            $('#add').click(function(e) {
                 i++;
-                $('#dynamic-table').append('<div> <tr id="row'+i+'"> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td>{{ forms.food_item(class="form-control form-control-lg") }}</td> <td>{{ forms.exp_date.label(class="form-control-label") }}</td <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td> <td> <button name="remove" id= "remove" class="btn btn-danger"> X </button> </td> </tr>');
+                $('#dynamic-table').append('<table id="row'+i+'"> <div> <tr> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td>{{ forms.food_item(class="form-control form-control-lg") }}</td> <td><button class="btn btn-danger" name="remove" id="remove"> X </button></td> </tr> </div> <div> <tr> <td>{{ forms.exp_date.label(class="form-control-label") }}</td> <td>{{ forms.exp_date(class="form-control form-control-lg") }}</td> </tr>  </div> </table>');
             });
-        });
+
+            $("#dynamic-table").on('click', '#remove', function(e) {
+                $("table:last").remove();
+            });         
+    });
     </script>
 {% endblock %}
