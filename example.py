@@ -5,7 +5,9 @@ except ImportError:
     import Tkinter as tk
     import ttk
 
+import requests
 from tkcalendar import Calendar, DateEntry
+from bs4 import BeautifulSoup
 
 def example1():
     def print_sel():
@@ -46,8 +48,13 @@ def example3():
                     foreground='white', borderwidth=2, year=2010)
     cal.pack(padx=10, pady=10)
 
+with open("templates/add.html", "r") as f:
+    
+    contents = f.read()
 
-root = tk.Tk()
-ttk.Button(root, text='Calendar', command=example1).pack(padx=10, pady=10)
-ttk.Button(root, text='Calendar with events', command=example2).pack(padx=10, pady=10)
-ttk.Button(root, text='DateEntry', command=example3).pack(padx=10, pady=10)
+    soup = BeautifulSoup(contents, 'lxml')
+    print(soup.findAll('tr'))
+#oot = tk.Tk()
+#ttk.Button(root, text='Calendar', command=example1).pack(padx=10, pady=10)
+#ttk.Button(root, text='Calendar with events', command=example2).pack(padx=10, pady=10)
+#ttk.Button(root, text='DateEntry', command=example3).pack(padx=10, pady=10)

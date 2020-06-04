@@ -1,65 +1,72 @@
 {% extends "layout.html" %}
 {% block item %}
-    <style>
-        h1 {
-            text-align: center;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 500px 500px 1fr;
-            grid-template-rows: 1fr 1fr;
-            grid-template-areas: 
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 500px 500px 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
             ". food expiration ."
             ". button button .";
-        }
-        .food {
-            padding-top: 50px;
-            grid-area: food;
-            justify-self: center;
-        }
-        .expiration {
-            padding-top: 50px;
-            grid-area: expiration;
-            justify-self: center;
-        }
-        .button {
-            padding-top: 25px;
-            grid-area: button;
-            justify-self: center;
-        }
-        textarea {
-            width: 250px;
-            text-align: left;
-        }
-        button {
-            text-align: center;
-            float: initial;
-        }
-    </style>
-    <h1>
-        Add items to your fridge
-    </h1>
+    }
 
-        <div class="grid">
-            <div class="food">
-                <textarea>
+    .food {
+        padding-top: 50px;
+        grid-area: food;
+        justify-self: center;
+    }
+
+    .expiration {
+        padding-top: 50px;
+        grid-area: expiration;
+        justify-self: center;
+    }
+
+    .button {
+        padding-top: 25px;
+        grid-area: button;
+        justify-self: center;
+    }
+
+    textarea {
+        width: 250px;
+        text-align: left;
+    }
+
+    button {
+        text-align: center;
+        float: initial;
+    }
+</style>
+<h1>
+    Add items to your fridge
+</h1>
+
+<div class="grid">
+    <div class="food">
+        <textarea>
                     Enter food item:
                 </textarea>
-            </div>
-    
-            <div class="expiration">
-                Enter expiration date:
-            </div>
+    </div>
 
-            <div class="button">
-                <script type="text/javascript" src="script.js"></script>
-                <button id="button" onclick="duplicate()">
-                    Add another Item:
-                </button>
-            </div>
-        </div>
+    <div class="expiration">
+        Enter expiration date:
+    </div>
 
-      
-    {% endblock %}
+    <div class="button">
+        <script type="text/javascript" src="script.js"></script>
+        <button id="button" onclick="duplicate()">
+            Add another Item:
+        </button>
+    </div>
+</div>
+
+
+{% endblock %}
 </body>
+
 </html>

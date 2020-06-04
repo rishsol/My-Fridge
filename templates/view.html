@@ -4,6 +4,12 @@
     Items in Your Fridge
 </h2>
 <h3>
-    {{ item }} : {{ exp_date }}
+    {% for item in items %}
+        <li>{{ item }} </li>
+    {% endfor %}
+
+    {% for exp_date in exp_dates %}
+        <li>{{ exp_date }} </li>
+    {% endfor %}
 </h3>
 {% endblock %}
