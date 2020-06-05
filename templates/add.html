@@ -10,16 +10,14 @@
     <div class="form-group" name='food_item'>
         <tr>
             <td>{{ forms.food_item.label(class="form-control-label") }}</td>
-            <td> <input type="text" name="food" class="form-control form-control-lg"> </td>
-            {#<td name="food">{{ forms.food_item(class="form-control form-control-lg") }}</td>#}
+            <td> <input type="text" name="date" class={{ forms.food_item(class='form-control form-control-lg') }} </td>
             <td> <button type="button" class="btn btn-success" name="add" id="add">Add another item</button> </td>
         </tr>
     </div>
     <div class="form-group" name='exp_date'>
         <tr>
             <td>{{ forms.exp_date.label(class="form-control-label") }}</td>
-            <td> <input type="date" name="date" class="form-control form-control-lg"></td>
-           {#<td name="date">{{ forms.exp_date(class="form-control form-control-lg") }}</td>#}
+            <td> <input type="date" name="date" class={{ forms.exp_date(class='form-control form-control-lg') }} </td>
         </tr>
     </div>
 </table>
@@ -35,7 +33,7 @@
             var i = 1;
             $('#add').click(function(e) {
                 i++;
-                $('#dynamic-table').append('<table id="row'+i+'"> <div> <tr> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td> <input type="text" name="food" class="form-control form-control-lg"> </td> <td><button class="btn btn-danger" name="remove" id="remove"> X </button></td> </tr> </div> <div> <tr> <td>{{ forms.exp_date.label(class="form-control-label") }}</td> <td> <input type="date" name="date" class="form-control form-control-lg"></td> </tr>  </div> </table>');
+                $('#dynamic-table').append('<table id="row'+i+'"> <div> <tr> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td> <input type="text" name="date" class={{ forms.food_item(class='form-control form-control-lg') }} </td> <td><button class="btn btn-danger" name="remove" id="remove"> X </button></td> </tr> </div> <div> <tr> <td>{{ forms.exp_date.label(class="form-control-label") }}</td> <td> <input type="date" name="date" class={{ forms.exp_date(class='form-control form-control-lg') }} </td> </tr>  </div> </table>');
             });
 
             $("#dynamic-table").on('click', '#remove', function(e) {
