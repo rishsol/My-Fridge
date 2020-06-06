@@ -33,7 +33,7 @@
             var i = 1;
             $('#add').click(function(e) {
                 i++;
-                $('#dynamic-table').append('<table id="row'+i+'"> <div> <tr> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td> <input type="text" name="date" class={{ forms.food_item(class='form-control form-control-lg') }} </td> <td><button class="btn btn-danger" name="remove" id="remove"> X </button></td> </tr> </div> <div> <tr> <td>{{ forms.exp_date.label(class="form-control-label") }}</td> <td> <input type="date" name="date" class={{ forms.exp_date(class='form-control form-control-lg') }} </td> </tr>  </div> </table>');
+                $('#dynamic-table').append('<table class="table table-bordered" id="row'+i+'"> <div> <tr> <td>{{ forms.food_item.label(class="form-control-label") }}</td> <td> <input type="text" name="date" class={{ forms.food_item(class='form-control form-control-lg') }}\ </td> <td><button class="btn btn-danger" name="remove" id="remove"> X </button></td> </tr> </div> <div> <tr> <td>{{ forms.exp_date.label(class="form-control-label") }}</td> <td> <input type="date" name="date" class={{ forms.exp_date(class='form-control form-control-lg') }} </td> </tr>  </div> </table>');
             });
 
             $("#dynamic-table").on('click', '#remove', function(e) {

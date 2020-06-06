@@ -34,21 +34,12 @@ def home():
 def add():
     forms = Item()
     if request.method == 'POST':
-        #soup = BeautifulSoup(open('templates/add.html'), 'html.parser')
-        #print(list(soup.findAll('input', {'name': 'food'})))
-        #items = [n.get('value') for n in soup.findAll('input', {'name': 'food'})]
-        #print(items)
-        #exp_dates = [n.get('value') for n in soup.findAll('input', {'name': 'date'})]
         items = request.form.getlist('food')
-        print(items)
         exp_dates = request.form.getlist('date')
         return render_template('view.html', items=items, exp_dates=exp_dates) 
-        #with open("templates/add.html", "r") as f:
-         #   contents = f.read()
-         #   soup = BeautifulSoup(contents, 'lxml')
-         #   items = list(soup.findAll('td', attrs={'name': 'food'}))
-          #  print(items)
-           # exp_dates = list(soup.findAll('td', attrs={'name': 'item'}))
+
+    #if request.method == 'GET':
+        #create new form to formlist
     return render_template('add.html', title='Add', forms=forms)
 
 @app.route('/view', methods=['POST', 'GET'])
